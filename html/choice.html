@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景点推荐</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../css/all.css" type="text/css">
+    <link rel="stylesheet" href="../footer/footer.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+</head>
+
+<div id="imgModal" class="modal" aria-hidden="true">
+  <span id="closeModal" class="modal-close">&times;</span>
+  <img id="modalImg" class="modal-img" alt="">
+</div>
+
+<body>
+    <header class="header-nav sticky" style="background-color: var(--primary);">
+        <div id="overlay"></div>
+        <nav class="name">孽岛疑云</nav>
+        <nav class="mid-nav">
+            <div class="button">
+                <a href="main.html" class="nav-item">首页</a>               
+                <a href="clues.html" class="nav-item">线索</a>
+                <a href="plan.html" class="nav-item">抉择</a>
+            </div>
+        </nav>
+        <nav class="right-nav">
+            <div class="button">
+
+                <a href="attractions.html" class="nav-item">景点</a>
+                <a href="food.html" class="nav-item">美食</a>
+                <a href="about.html" class="nav-item">关于</a>
+            </div>
+            <div class="search-container">
+                <button class="search-btn fas fa-search nav-item"></button>
+                <div class="search-box">
+                    <input class="search-input" type="text">
+                </div>
+            </div>
+            <div class="menu-container">
+                <button class="menu-btn fas fa-bars nav-item"></button>
+                <button class="X">X</button>
+            </div>
+        </nav>
+        <div class="menu"></div>
+    </header>
+
+    <div class="attractions-container">
+        <div class="attractions-grid">
+            <div class="attraction-item">
+                <div class="attraction-card" data-category="murder">
+                    <img src="/线索/抉择/抉择01-.jpg" class="attraction-image" data-on="/线索/抉择/抉择01.jpg" data-off="/线索/抉择/抉择01-.jpg" data-inv= "false" data-id="抉择01">
+                    <button class="zoom-btn" type="button" arial-label="放大图片">
+                        ⛶
+                    </button>
+                    <div class="attraction-info">
+                        <h3 class="attraction-name">抉择一 (未解锁)</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景点2 -->
+            <div class="attraction-item">
+                <div class="attraction-card" data-category="murder">
+                    <img src="/线索/抉择/抉择02-.jpg" class="attraction-image" data-on="/线索/抉择/抉择02.jpg" data-off="/线索/抉择/抉择02-.jpg" data-inv= "false" data-id="抉择02">
+                    <button class="zoom-btn" type="button" arial-label="放大图片">
+                        ⛶
+                    </button>
+                    <div class="attraction-info">
+                        <h3 class="attraction-name">抉择二 (未解锁)</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景点3 -->
+            <div class="attraction-item">
+                <div class="attraction-card" data-category="murder">
+                    <img src="/线索/抉择/抉择03-.jpg" class="attraction-image" data-on="/线索/抉择/抉择03.jpg" data-off="/线索/抉择/抉择03-.jpg" data-inv= "false" data-id="抉择03">
+                    <button class="zoom-btn" type="button" arial-label="放大图片">
+                        ⛶
+                    </button>
+                    <div class="attraction-info">
+                        <h3 class="attraction-name">抉择三 (未解锁)</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景点4 -->
+            <div class="attraction-item">
+                <div class="attraction-card" data-category="murder">
+                    <img src="/线索/抉择/抉择04-.jpg" class="attraction-image" data-on="/线索/抉择/抉择04.jpg" data-off="/线索/抉择/抉择04-.jpg" data-inv= "false" data-id="抉择04">
+                    <button class="zoom-btn" type="button" arial-label="放大图片">
+                        ⛶
+                    </button>
+                    <div class="attraction-info">
+                        <h3 class="attraction-name">抉择四 (未解锁)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 导航栏链接 -->
+            <nav class="footer-part1">
+                <div class="footer-nav-items">
+                    <a href="main.html" class="footer-nav-item">首页</a>
+                    <a href="weather.html" class="footer-nav-item">天气</a>
+                    <a href="plan.html" class="footer-nav-item">计划</a>
+                    <a href="attractions.html" class="footer-nav-item">景点</a>
+                    <a href="food.html" class="footer-nav-item">美食</a>
+                    <a href="about.html" class="footer-nav-item">关于</a>
+                </div>
+            </nav>
+
+            <!-- 宣传标语和联络我们 -->
+             <div class="footer-part2">
+                <!-- 左侧：关于秦皇岛（宣传标语） -->
+                <div class="footer-about">
+                    <h3>关于秦皇岛</h3>
+                    <p> 浪逐自由，城载激情。 <br>
+                        山海入怀，自在随心。</p>
+                </div>
+
+                <!-- 右侧：联络我们 -->
+                <div class="footer-contact">
+                    <h3>联络我们</h3>
+                    <ul>
+                        <li>电话：1234567890</li>
+                        <li>公众号：秦皇岛浪人日记</li>
+                    </ul>
+                </div>
+             </div>
+        
+            <!-- 底部Slogan -->
+            <div class="footer-slogan">
+                <p>人就应该待在没有天花板的地方！</p>
+            </div>
+        </div>
+    </footer>
+
+        
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/choice.js"></script>
+</body>
+</html>

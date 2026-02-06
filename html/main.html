@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+    <link rel="stylesheet" href="../footer/footer.css" type="text/css">
+
+</head>
+<body>
+    <header class="header-nav sticky" style="background-color: var(--primary);">
+        <div id="overlay"></div>
+        <nav class="name">孽岛疑云</nav>
+        <nav class="mid-nav">
+            <div class="button">
+                <a href="main.html" class="nav-item">首页</a>               
+                <a href="clues.html" class="nav-item">线索</a>
+                <a href="plan.html" class="nav-item">抉择</a>
+            </div>
+        </nav>
+        <nav class="right-nav">
+            <div class="button">
+
+                <a href="attractions.html" class="nav-item">景点</a>
+                <a href="food.html" class="nav-item">美食</a>
+                <a href="about.html" class="nav-item">关于</a>
+            </div>
+            <div class="search-container">
+                <button class="search-btn fas fa-search nav-item"></button>
+                <div class="search-box">
+                    <input class="search-input" type="text">
+                </div>
+            </div>
+            <div class="menu-container">
+                <button class="menu-btn fas fa-bars nav-item"></button>
+                <button class="X">X</button>
+            </div>
+        </nav>
+        <div class="menu"></div>
+    </header>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../img/图片_20250608031548.jpg"></div>
+            <div class="swiper-slide"><img src="../img/20250528130014.jpg"></div>
+            <div class="swiper-slide"><img src="../img/20250528131638.jpg"></div>
+            <div class="swiper-slide"><img src="../img/20250528130016.jpg"></div>
+            <div class="swiper-slide"><img src="../img/20250528125955.jpg"></div>
+            <div class="swiper-slide"><img src="../img/20250528130013.jpg"></div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <main style="background-color: var(--background);">
+
+
+        <!-- 秦皇岛简介 -->
+        <div class="intro-section-title">秦皇岛简介</div>
+        <div class="intro-container">
+            <div class="intro-text">
+                <p>秦皇岛市，简称“秦”，别称港城，是河北省下辖地级市，为Ⅱ型大城市，地处中国华北地区、河北省东北部，南临渤海，北依燕山，东接辽宁，西近京津，地处华北、东北两大经济区结合部，居环渤海经济圈中心地带，是首都经济圈的重要功能区、首批沿海开放城市。秦皇岛市是国务院批复确定的京津冀地区重要的节点城市、现代海洋城市、全国性综合交通枢纽城市，是全国滨海旅游目的地。</p>
+                <p>秦皇岛作为一座以旅游闻名世界的海滨城市，曾获中国最美海滨城市、全国十佳生态文明城市、中国北方最宜居城市、中国最佳休闲城市、中国最具爱心城市、中国最具幸福感城市等荣誉。这个地区自然风景优美迷人、美味佳肴诱人，是旅游和户外的理想去处。</p>
+            </div>
+            <div class="intro-image">
+                <img src="../img/首页秦皇岛介绍.png" alt="秦皇岛介绍">
+            </div>
+        </div>
+
+
+        <!-- 宣传片与游玩攻略区域 -->
+        <div class="promo-guide-section">
+            <div class="promo-wrapper">
+                <h2 class="promo-title">宣传片</h2>
+                <div class="promo-video">
+                    <video controls poster="../img/秦皇岛宣传片封面.jpg">
+                    <source src="../img/秦皇岛宣传片.mp4" type="video/mp4">
+                    您的浏览器不支持 video 标签。
+                    </video>
+                </div>
+            </div>
+
+            <div class="guide-wrapper">
+                <h2 class="guide-title">游玩攻略</h2>
+                <div class="guide-card">
+                <a href="https://zhuanlan.zhihu.com/p/392453113" target="_blank" class="guide-link">秦皇岛旅游攻略：最详细的三日游攻略！</a>
+                <p>内含出行准备、交通、景点等规划。800元搞定！（附：本地人建议）</p>
+                </div>
+                <div class="guide-card">
+                <a href="https://www.hbsztv.com/2025/0607/1254921.html" target="_blank" class="guide-link">秦皇岛旅游攻略：三天两夜自由行天自由行经典游玩攻略</a>
+                <p>涵盖城堡、海滩与美食三大核心内容，帮助你一网打尽秦皇岛的精华</p>
+                </div>
+                <div class="guide-card">
+                <a href="https://hainiao.net/tips/qinhuangdao" target="_blank" class="guide-link">河北省秦皇岛市自由行懒人包</a>
+                <p>秦皇岛旅游攻略：长城起点，中国唯一一个因皇帝帝号而得名的城市</p>
+                </div>
+            </div>
+            </div>
+
+
+        <!-- 功能模块-->
+        <div class="features-container">
+        <!-- 左侧图片区域 -->
+            <div class="features-grid">
+                <div class="feature-item" data-feature="weather" onclick="location.href='weather.html'">
+                <img src="../img/首页天气.jpg" alt="天气">
+                <div class="caption">天气</div>
+                </div>
+                <div class="feature-item" data-feature="attractions" onclick="location.href='attractions.html'">
+                <img src="../img/景点推荐.jpg" alt="景点">
+                <div class="caption">景点</div>
+                </div>
+                <div class="feature-item" data-feature="food" onclick="location.href='food.html'">
+                <img src="../img/美食指南.jpg" alt="美食">
+                <div class="caption">美食</div>
+                </div>
+                <div class="feature-item" data-feature="plan" onclick="location.href='plan.html'">
+                <img src="../img/首页计划.png" alt="计划">
+                <div class="caption">计划</div>
+                </div>
+            </div>
+
+            <!-- 右侧欢迎语 / 功能介绍 -->
+            <div class="features-info">
+                <div class="default-info active">
+                    <h1>欢迎来到秦皇岛！</h1>
+                    <p style="font-size: 1.2rem; color: #444;">探索这座城市的美丽和魅力</p>
+                </div>
+                <div class="feature-text" data-feature="weather">
+                    <h2>实时天气信息</h2>
+                    <p>获取秦皇岛精准的实时天气预报，帮助您选择最佳出行时间，规划行程更轻松！</p>
+                </div>
+                <div class="feature-text" data-feature="attractions">
+                    <h2>精选景点推荐</h2>
+                    <p>带您探索秦皇岛最受欢迎的景点，从历史古迹到自然风光再到人文景观等，应有尽有。</p>
+                </div>
+                <div class="feature-text" data-feature="food">
+                    <h2>地道美食指南</h2>
+                    <p>发现秦皇岛的特色美食、地道餐厅和特产，从海鲜大餐到街头夜市，满足您的味蕾。</p>
+                </div>
+                <div class="feature-text" data-feature="plan">
+                    <h2>智能行程规划</h2>
+                    <p>轻松创建个性化行程，添加您感兴趣的景点和活动，生成行程规划文档，确保您充分利用在秦皇岛的每一分钟。</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 欢迎区域 -->
+        <div class="welcome-container">
+            <h2>开启您的秦皇岛之旅</h2>
+            <p>无论您是追求历史文化的深度探索，还是渴望海滨度假的悠闲时光，我们的旅行规划平台将为您打造独一无二的旅程体验。</p>
+            <a href="plan.html" class="cta-button">开始规划 →</a>
+        </div>
+    </main>
+
+    <button id="back-to-top" title="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 导航栏链接 -->
+            <nav class="footer-part1">
+                <div class="footer-nav-items">
+                    <a href="main.html" class="footer-nav-item">首页</a>
+                    <a href="weather.html" class="footer-nav-item">天气</a>
+                    <a href="plan.html" class="footer-nav-item">计划</a>
+                    <a href="attractions.html" class="footer-nav-item">景点</a>
+                    <a href="food.html" class="footer-nav-item">美食</a>
+                    <a href="about.html" class="footer-nav-item">关于</a>
+                </div>
+            </nav>
+
+            <!-- 宣传标语和联络我们 -->
+             <div class="footer-part2">
+                <!-- 左侧：关于秦皇岛（宣传标语） -->
+                <div class="footer-about">
+                    <h3>关于秦皇岛</h3>
+                    <p> 浪逐自由，城载激情。 <br>
+                        山海入怀，自在随心。</p>
+                </div>
+
+                <!-- 右侧：联络我们 -->
+                <div class="footer-contact">
+                    <h3>联络我们</h3>
+                    <ul>
+                        <li>电话：1234567890</li>
+                        <li>公众号：秦皇岛浪人日记</li>
+                    </ul>
+                </div>
+             </div>
+        
+            <!-- 底部Slogan -->
+            <div class="footer-slogan">
+                <p>人就应该待在没有天花板的地方！</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/header.js"></script>
+</body>
+</html>

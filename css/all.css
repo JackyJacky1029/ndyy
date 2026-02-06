@@ -1,0 +1,396 @@
+body {
+    font-family: 'KaiTi';
+    font-size: 20px;
+    color: #4a84a4; 
+    background-color: #d1e3f6; 
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-img {
+    max-width: 90vw;
+    max-height: 900vh;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.attractions-banner {
+    border: 1px solid;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.attractions-banner-image {
+    display: block;
+    margin: auto;
+    width: 700px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    padding: 0 20px;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.banner-text p {
+    font-size: 1.35rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 筛选区 */
+.attractions-filter-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.attractions-filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;
+}
+        
+.attractions-filter-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 18px;
+    background-color: #ffffff;
+    color: #3093e9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+        
+.attractions-filter-btn:hover {
+    background-color: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+        
+.attractions-filter-btn.active {
+    background-color: #1e88e5;
+    color: white;
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+}
+        
+.attractions-filter-btn:active {
+    transform: translateY(1px);
+}
+        
+.attractions-filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #1e88e5;
+    transition: width 0.3s ease;
+}
+        
+.attractions-filter-btn:hover::after {
+    width: 60%;
+}
+        
+.attractions-filter-btn.active::after {
+    width: 80%;
+    background-color: white;
+}
+
+/* 景点推荐展示区 */
+.attractions-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.attraction-item {
+    display: contents;
+}
+.attraction-card {
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.zoom-btn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 6px 8px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+}
+
+.zoom-btn:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.attraction-card.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    height: 0;
+    margin: -15px 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    display: none !important;
+}
+
+.attraction-card:not(hidden) {
+    opacity: 1;
+    height: auto;
+    position: relative;
+    visibility: visible;
+
+}
+
+.attraction-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.attraction-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.attraction-info {
+    padding: 15px;
+}
+
+.attraction-name {
+    font-size: 1.3rem;
+    margin: 0 0 8px 0;
+    color:rgb(10, 100, 218)
+}
+
+.attraction-description {
+    font-size: 0.9rem;
+    color: #525151;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 地图导览区 */
+.map {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+
+}
+
+.map-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 35px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.map-image {
+    width: 75%;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+    
+}
+
+.map-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-size: 1.9rem;
+    text-align: center;
+    margin: 45px 0 30px 0;
+    position: relative;
+    color: #144797;
+}
+        
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #1e88e5;
+    margin: 10px auto;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  background-color: #3f95f1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#back-to-top i {
+  font-size: 20px;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  background-color: #1863c4;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#restart-btn {
+    font-size: 24px;
+    font-family: 'Kaiti';
+}
+
+@media (max-width: 768px) {
+
+    .attractions-banner {
+        height: 100%;
+    }
+
+    .attractions-banner-image {
+        width: 500px;
+        height: auto;
+    }
+
+    .banner-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner-text p {
+        font-size: 1.02rem;
+    }
+
+    .map {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .map-container  {
+        padding: 20px;
+    }
+
+    .attractions-filter-buttons {
+        gap: 8px;
+    }
+
+    .attractions-filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .attractions-grid {
+       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    } 
+
+    .attractions-container {
+        padding: 30px auto;
+    }
+
+    .attractions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .attraction-name {
+        font-size: 1.15rem;
+    }
+
+    .attraction-description {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+}

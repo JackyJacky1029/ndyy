@@ -1,0 +1,136 @@
+.footer {
+    padding: 2px 0;
+    background-color: #3b5c9e;
+    font-family:kaiti;
+    color:#fafcfe;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4px;
+}
+
+/* 导航栏链接 */
+.footer-part1 {
+    padding: 5px 0;
+    margin-bottom: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+.footer-nav-items {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 8px; 
+}
+
+.footer-nav-item {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.08rem;
+    font-weight: 500;
+    cursor: pointer; 
+    padding: 4px 8px;
+    transition: all 0.3s;
+    text-decoration: none;
+
+}
+
+.footer-nav-item:hover {
+    color: #ffd700;
+}
+
+
+/* 宣传标语和联络我们 */
+.footer-part2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto 2px;
+    padding: 3px 0;
+    width: 100%;
+    max-width:800px;
+}
+
+.footer-about, .footer-contact {
+    flex: 0 0 50%;
+    min-width: 0;
+    padding: 0 100px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.footer-about h3, .footer-contact h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    position: relative;
+    font-weight: 600;
+}
+
+.footer-about h3::after, .footer-contact h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #ffd700;
+}
+
+.footer-about p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-contact ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.footer-contact li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+
+/* 底部Slogan */
+.footer-slogan {
+    width: 100%;
+    text-align: center;
+    padding-top: 1px;
+    font-weight: 300;
+}
+
+.footer-slogan p{
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ffd700, #f1ebc8);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    
+}
+
+@media (max-width:768px) {
+    .footer-part1,
+    .footer-part2 {
+        display:none;
+    }
+
+    .footer-slogan {
+        padding: 1px 0;
+    }
+
+    .footer-slogan p {
+        font-size: 1.05rem;
+    }
+}
