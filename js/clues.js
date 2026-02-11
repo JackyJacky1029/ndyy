@@ -105,6 +105,14 @@ document.addEventListener('DOMContentLoaded', function() {
                             body: JSON.stringify({id: id})
                         });
 
+                        console.log("POST /investigate status =", res.status);
+
+                        if(!res.ok) {
+                            const text = await res.text();
+                            console.error("POST failed:", text);
+                            return;
+                        }
+
                         title.textContent = title.textContent.replace(' (未调查)', "")
                         img.dataset.inv = "true";
                     }
