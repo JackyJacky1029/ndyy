@@ -48,6 +48,34 @@ body {
     transition: all 0.3s ease;
 }
 
+.picker {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 40px 10px;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+}
+
+.picker::-webkit-scrollbar{
+    display: none;
+}
+
+.picker .char {
+    scroll-snap-align: center;
+    border-radius: 12px;
+    flex: 0 0 500px;
+}
+
+.picker .pdfCanvas{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .attractions-banner {
     border: 1px solid;
     position: relative;

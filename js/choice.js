@@ -1,24 +1,40 @@
+document.addEventListener("DOMContentLoaded", async () => {
+    const res = await fetch("https://ndyy-api.onrender.com/state");
+    window.serverState = await res.json();
+
+    document.querySelectorAll(".attraction-image").forEach(img => {
+        const id = img.dataset.id;
+        const title = img.closest(".attraction-card").querySelector("h3");
+        
+        if (window.serverState[id]) {
+            img.src = img.dataset.on;
+            img.dataset.inv ="true";
+            title.textContent = title.textContent.replace(" (未解锁)", "");
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
 
-            document.querySelectorAll(".attraction-image").forEach(img => {
-                const id = img.dataset.id;
-                const title = img.closest(".attraction-card").querySelector("h3");
+            // document.querySelectorAll(".attraction-image").forEach(img => {
+            //     const id = img.dataset.id;
+            //     const title = img.closest(".attraction-card").querySelector("h3");
 
-                const saved = localStorage.getItem(id);
+            //     const saved = localStorage.getItem(id);
 
-                if (saved === "true") {
+            //     if (saved === "true") {
 
-                    img.dataset.inv = "true";
-                    title.textContent = title.textContent.replace(" (未解锁)", "");
-                }
-            });
+            //         img.dataset.inv = "true";
+            //         title.textContent = title.textContent.replace(" (未解锁)", "");
+            //     }
+            // });
 
             document.querySelectorAll(".attraction-image").forEach(img => {
                 const id = img.dataset.id;
                 let on = false;
                 const title = img.closest(".attraction-card").querySelector("h3");
 
-                img.onclick =() => {
+                img.onclick = async () => {
                     
                     const notInv = img.dataset.inv === "false"
                     const investigatedCount = countInvestigated();
@@ -31,10 +47,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     img.src = on ? img.dataset.off : img.dataset.on ;
                     on = !on;
 
-                    if (notInv) {
+                    if (notInv && investigatedCount < 22) {
+
+                        const res = await fetch("https://ndyy-api.onrender.com/investigate", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({id})
+                        });
+
+                        console.log("POST /investigate status =", res.status);
+
+                        if(!res.ok) {
+                            const text = await res.text();
+                            console.error("POST failed:", text);
+                            return;
+                        }
+
+                        if(res.ok) {
+                            window.serverState[id] = true;
+                        }
+
                         title.textContent = title.textContent.replace(' (未解锁)', "")
                         img.dataset.inv = "true";
-                        localStorage.setItem(id, "true")
                     }
                 }
             })
@@ -88,16 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             function countInvestigated() {
-                let count = 0;
-
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (localStorage.getItem(key) === "true") {
-                        count++;
-                    }
-                }
-
-                return count;
+                return Object.keys(window.serverState).length;
             }
 
             $(window).scroll(function() {

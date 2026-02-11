@@ -1,12 +1,14 @@
+window.window.serverState = window.window.serverState || {};
+
 document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("https://ndyy-api.onrender.com/state");
-    const state = await res.json();
+    window.serverState = await res.json();
 
     document.querySelectorAll(".attraction-image").forEach(img => {
         const id = img.dataset.id;
         const title = img.closest(".attraction-card").querySelector("h3");
         
-        if (state[id]) {
+        if (window.serverState[id]) {
             img.src = img.dataset.on;
             img.dataset.inv ="true";
             title.textContent = title.textContent.replace(" (未调查)", "");
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     img.src = on ? img.dataset.off : img.dataset.on ;
                     on = !on;
 
-                    if (notInv) {
+                    if (notInv && investigatedCount < 22) {
 
                         const res = await fetch("https://ndyy-api.onrender.com/investigate", {
                             method: "POST",
@@ -127,6 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             const text = await res.text();
                             console.error("POST failed:", text);
                             return;
+                        }
+
+                        if(res.ok) {
+                            window.serverState[id] = true;
                         }
 
                         title.textContent = title.textContent.replace(' (未调查)', "")
@@ -186,22 +192,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalImg.src = "";
             }
 
-            function resetAll() {
+            async function resetAll() {
+
+                const res = await fetch("https://ndyy-api.onrender.com/reset", {
+                    method: "POST"
+                });
+
+                if (!res.ok) {
+                    alert("重置失败");
+                    return;
+                }
                 localStorage.clear();
                 location.reload();
             }
 
             function countInvestigated() {
-                let count = 0;
-
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (localStorage.getItem(key) === "true") {
-                        count++;
-                    }
-                }
-
-                return count;
+                return Object.keys(window.serverState).length;
             }
 
             $(window).scroll(function() {
