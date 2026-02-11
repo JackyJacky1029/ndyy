@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
             document.addEventListener("DOMContentLoaded", async () => {
-                const res = await fetch("https://ndyy.onrender.com");
+                const res = await fetch("https://ndyy-api.onrender.com/state");
                 const state = await res.json();
 
                 document.querySelectorAll(".attraction-image").forEach(img => {
@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     if (notInv) {
 
-                        const res = await fetch("https://ndyy.onrender.com", {
+                        const res = await fetch("https://ndyy-api.onrender.com/investigate", {
                             method: "POST",
                             headers: {"Content-Type": "application/json"},
-                            body: JSON.stringify({id})
+                            body: JSON.stringify({id: id})
                         });
 
                         title.textContent = title.textContent.replace(' (未调查)', "")
