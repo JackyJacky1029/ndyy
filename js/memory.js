@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 })
 
-                pdfjsLib.getDocument("/剧本/亲戚-阿海.pdf").promise.then(pdf => {
+                pdfjsLib.getDocument("../剧本/亲戚-阿海.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
                         const scale = 0.3;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 })
 
-                pdfjsLib.getDocument("/剧本/船夫-阿杰.pdf").promise.then(pdf => {
+                pdfjsLib.getDocument("../剧本/船夫-阿杰.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
                         const scale = 0.3;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 })
 
-                pdfjsLib.getDocument("/剧本/见习护士-舒望.pdf").promise.then(pdf => {
+                pdfjsLib.getDocument("../剧本/见习护士-舒望.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
                         const scale = 0.3;
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 })
 
-                pdfjsLib.getDocument("/剧本/女大学生-唐小姐.pdf").promise.then(pdf => {
+                pdfjsLib.getDocument("../剧本/女大学生-唐小姐.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
                         const scale = 0.3;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 })
 
-                pdfjsLib.getDocument("/剧本/少女住客-玉馨.pdf").promise.then(pdf => {
+                pdfjsLib.getDocument("../剧本/少女住客-玉馨.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
                         const scale = 0.3;
