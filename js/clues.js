@@ -1,20 +1,36 @@
+document.addEventListener("DOMContentLoaded", async () => {
+    const res = await fetch("https://ndyy-api.onrender.com/state");
+    const state = await res.json();
+
+    document.querySelectorAll(".attraction-image").forEach(img => {
+        const id = img.dataset.id;
+        const title = img.closest(".attraction-card").querySelector("h3");
+        
+        if (state[id]) {
+            img.src = img.dataset.on;
+            img.dataset.inv ="true";
+            title.textContent = title.textContent.replace(" (未调查)", "");
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
 
-            document.addEventListener("DOMContentLoaded", async () => {
-                const res = await fetch("https://ndyy-api.onrender.com/state");
-                const state = await res.json();
+            // document.addEventListener("DOMContentLoaded", async () => {
+            //     const res = await fetch("https://ndyy-api.onrender.com/state");
+            //     const state = await res.json();
 
-                document.querySelectorAll(".attraction-image").forEach(img => {
-                    const id = img.dataset.id;
-                    const title = img.closest(".attraction-card").querySelector("h3");
+            //     document.querySelectorAll(".attraction-image").forEach(img => {
+            //         const id = img.dataset.id;
+            //         const title = img.closest(".attraction-card").querySelector("h3");
                     
-                    if (state[id]) {
-                        img.src = img.dataset.on;
-                        img.dataset.inv ="true";
-                        title.textContent = title.textContent.replace(" (未调查)", "");
-                    }
-                });
-            });
+            //         if (state[id]) {
+            //             img.src = img.dataset.on;
+            //             img.dataset.inv ="true";
+            //             title.textContent = title.textContent.replace(" (未调查)", "");
+            //         }
+            //     });
+            // });
 
             // document.querySelectorAll(".attraction-image").forEach(img => {
             //     const id = img.dataset.id;
