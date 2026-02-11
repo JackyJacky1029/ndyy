@@ -1,39 +1,141 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-            document.addEventListener("DOMContentLoaded", async () => {
-                const res = await fetch("https://ndyy.onrender.com");
-                const state = await res.json();
+            const character = localStorage.getItem("character");
+            const characterModal = document.getElementById("characterModal");
 
-                document.querySelectorAll(".attraction-image").forEach(img => {
-                    const id = img.dataset.id;
-                    const title = img.closest(".attraction-card").querySelector("h3");
+            if (character === null) {
+
+                characterModal.classList.add("open");
+                characterModal.setAttribute("aria-hidden", "false");
+
+                const canvas1 = document.getElementById("pdfCanvas1");
+                const canvas2 = document.getElementById("pdfCanvas2");
+                const canvas3 = document.getElementById("pdfCanvas3");
+                const canvas4 = document.getElementById("pdfCanvas4");
+                const canvas5 = document.getElementById("pdfCanvas5");
+
+                document.querySelectorAll(".pdfCanvas").forEach(canvas => {
                     
-                    if (state[id]) {
-                        img.src = img.dataset.on;
-                        img.dataset.inv ="true";
-                        title.textContent = title.textContent.replace(" (未调查)", "");
-                    }
-                });
+                    canvas.addEventListener('click', (e) => {
+                        if (e.target === canvas) {
+                            localStorage.setItem("character", canvas.dataset.character)
+                            closeCharacterModal()
+                        }
+                    })
+                })
+
+                pdfjsLib.getDocument("/剧本/亲戚-阿海.pdf").promise.then(pdf => {
+                    pdf.getPage(1).then(page =>{
+
+                        const scale = 0.3;
+                        const viewport = page.getViewport({ scale });
+
+                        const context = canvas1.getContext("2d");
+
+                        canvas1.height = viewport.height;
+                        canvas1.width = viewport.width;
+
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        })
+                    })
+                })
+
+                pdfjsLib.getDocument("/剧本/船夫-阿杰.pdf").promise.then(pdf => {
+                    pdf.getPage(1).then(page =>{
+
+                        const scale = 0.3;
+                        const viewport = page.getViewport({ scale });
+
+                        const context = canvas2.getContext("2d");
+
+                        canvas2.height = viewport.height;
+                        canvas2.width = viewport.width;
+
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        })
+                    })
+                })
+
+                pdfjsLib.getDocument("/剧本/见习护士-舒望.pdf").promise.then(pdf => {
+                    pdf.getPage(1).then(page =>{
+
+                        const scale = 0.3;
+                        const viewport = page.getViewport({ scale });
+
+                        const context = canvas3.getContext("2d");
+
+                        canvas3.height = viewport.height;
+                        canvas3.width = viewport.width;
+
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        })
+                    })
+                })
+
+                pdfjsLib.getDocument("/剧本/女大学生-唐小姐.pdf").promise.then(pdf => {
+                    pdf.getPage(1).then(page =>{
+
+                        const scale = 0.3;
+                        const viewport = page.getViewport({ scale });
+
+                        const context = canvas4.getContext("2d");
+
+                        canvas4.height = viewport.height;
+                        canvas4.width = viewport.width;
+
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        })
+                    })
+                })
+
+                pdfjsLib.getDocument("/剧本/少女住客-玉馨.pdf").promise.then(pdf => {
+                    pdf.getPage(1).then(page =>{
+
+                        const scale = 0.3;
+                        const viewport = page.getViewport({ scale });
+
+                        const context = canvas5.getContext("2d");
+
+                        canvas5.height = viewport.height;
+                        canvas5.width = viewport.width;
+
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        })
+                    })
+                })
+                
+            }
+
+            document.querySelectorAll(".attraction-image").forEach(img => {
+
+                const id = img.dataset.id;
+
+                const title = img.closest(".attraction-card").querySelector("h3");
+
+                const unlocked = localStorage.getItem(id);
+
+                if (unlocked === "unlocked") {
+
+                    img.dataset.inv = "true";
+                    title.textContent = title.textContent.replace(" (未解锁)", "");
+                }
             });
-
-            // document.querySelectorAll(".attraction-image").forEach(img => {
-            //     const id = img.dataset.id;
-            //     const title = img.closest(".attraction-card").querySelector("h3");
-
-            //     const saved = localStorage.getItem(id);
-
-            //     if (saved === "true") {
-
-            //         img.dataset.inv = "true";
-            //         title.textContent = title.textContent.replace(" (未调查)", "");
-            //     }
-            // });
 
             const attractionFilterButtons = document.querySelectorAll('.attractions-filter-btn');
             const attractionCards = document.querySelectorAll('.attraction-card');
 
             // default filter
-            const defaultFilter = document.querySelector('[data-filter="murder"]');
+            const defaultFilter = document.querySelector('[data-filter="ahai"]');
             defaultFilter.classList.add('active');
 
 
@@ -84,13 +186,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 let on = false;
                 const title = img.closest(".attraction-card").querySelector("h3");
 
-                img.onclick = async () => {
+                img.onclick =() => {
 
                     const notInv = img.dataset.inv === "false"
                     const investigatedCount = countInvestigated();
 
-                    if (notInv && investigatedCount >= 22) {
-                        alert("时间差不多了!");
+                    const memoryCharacter = img.dataset.character
+
+                    if (memoryCharacter != localStorage.getItem("character")) {
+                        alert("请选择你自己角色的回忆!");
                         return;
                     }
 
@@ -98,15 +202,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     on = !on;
 
                     if (notInv) {
-
-                        const res = await fetch("https://ndyy.onrender.com", {
-                            method: "POST",
-                            headers: {"Content-Type": "application/json"},
-                            body: JSON.stringify({id})
-                        });
-
-                        title.textContent = title.textContent.replace(' (未调查)', "")
+                        title.textContent = title.textContent.replace(' (未解锁)', "")
                         img.dataset.inv = "true";
+                        localStorage.setItem(id, "unlocked")
                     }
                 }
             })
@@ -155,6 +253,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const restartBtn = document.getElementById("restart-btn")
 
             restartBtn.addEventListener('click', resetAll)
+
+            function closeCharacterModal() {
+                characterModal.classList.remove("open")
+                characterModal.setAttribute("aria-hidden", "true");
+            }
 
             function closeModal() {
                 modal.classList.remove("open")

@@ -37,6 +37,17 @@ body {
     user-select: none;
 }
 
+.pdfCanvas {
+    border: 1px solid rgb(255, 0, 0);
+    box-shadow: 0 2px 10px rgb(255, 101, 101);
+    margin-right: 5px;
+}
+
+.pdfCanvas:hover {
+    scale: 1.1;
+    transition: all 0.3s ease;
+}
+
 .attractions-banner {
     border: 1px solid;
     position: relative;
