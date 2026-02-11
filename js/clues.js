@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const res = await fetch("https://ndyy-api.onrender.com/investigate", {
                             method: "POST",
                             headers: {"Content-Type": "application/json"},
-                            body: JSON.stringify({id: id})
+                            body: JSON.stringify({id})
                         });
 
                         console.log("POST /investigate status =", res.status);
