@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pdfjsLib.getDocument("../剧本/亲戚-阿海.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
-                        const scale = 0.3;
+                        const scale = 0.27;
                         const viewport = page.getViewport({ scale });
 
                         const context = canvas1.getContext("2d");
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pdfjsLib.getDocument("../剧本/船夫-阿杰.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
-                        const scale = 0.3;
+                        const scale = 0.27;
                         const viewport = page.getViewport({ scale });
 
                         const context = canvas2.getContext("2d");
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pdfjsLib.getDocument("../剧本/见习护士-舒望.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
-                        const scale = 0.3;
+                        const scale = 0.27;
                         const viewport = page.getViewport({ scale });
 
                         const context = canvas3.getContext("2d");
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pdfjsLib.getDocument("../剧本/女大学生-唐小姐.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
-                        const scale = 0.3;
+                        const scale = 0.27;
                         const viewport = page.getViewport({ scale });
 
                         const context = canvas4.getContext("2d");
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pdfjsLib.getDocument("../剧本/少女住客-玉馨.pdf").promise.then(pdf => {
                     pdf.getPage(1).then(page =>{
 
-                        const scale = 0.3;
+                        const scale = 0.27;
                         const viewport = page.getViewport({ scale });
 
                         const context = canvas5.getContext("2d");
