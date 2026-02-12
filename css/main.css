@@ -1,7 +1,7 @@
 body {
     min-width: 768px;
     overflow-x: hidden;
-    font-family: 'KaiTi';
+    font-family: "KaiTi", "Kaiti SC";
     font-size: 20px;
     color: #ffffff; 
     background: radial-gradient(circle at center, #6c6c6c 0%, #404040 50%, #000000 100%); 
@@ -73,6 +73,16 @@ body {
 
 .headingBox:hover {
   transform: translateY(-5px);
+}
+
+#introBtn {
+  background: none;
+  border: none;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "KaiTi", "Kaiti SC";
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .pdfDisplay {

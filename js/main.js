@@ -134,6 +134,12 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         })
     })
+
+    const introBtn = document.getElementById("introBtn")
+
+    introBtn.addEventListener("click", () => {
+        window.open("豪门08：孽岛疑云-游戏说明.pdf", "_blank")
+    })
 });
 
 // 回到顶部按钮逻辑
