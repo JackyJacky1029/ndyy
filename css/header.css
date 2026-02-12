@@ -93,7 +93,7 @@ header .name::after {
 }
 
 header button {
-    font-family: "KaiTi", "Kaiti SC";
+    font-family: "KaiTi", "KaiTiGB2312";
     font-size: 28px;
     text-align: center;
     background: none;
@@ -105,7 +105,7 @@ header button {
 }
 
 header a {
-    font-family: "KaiTi", "Kaiti SC";
+    font-family: "KaiTi", "KaiTiGB2312";
     font-size: 28px;
     text-align: center;
     background: none;

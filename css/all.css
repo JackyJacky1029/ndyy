@@ -1,5 +1,5 @@
 body {
-    font-family: "KaiTi", "Kaiti SC";
+    font-family: "KaiTi", "KaiTiGB2312";
     font-size: 20px;
     color: #4a84a4; 
     background: radial-gradient(circle at center, #6c6c6c 0%, #404040 50%, #000000 100%); 
@@ -86,7 +86,7 @@ body {
     color: white;
     cursor: pointer;
     font-size: 32px;
-    font-family: "KaiTi", "Kaiti SC";
+    font-family: "KaiTi", "KaiTiGB2312";
     font-weight: 500;
     border-radius: 20px;
     padding: 8px 10px;
@@ -430,7 +430,7 @@ body {
 
 #restart-btn {
     font-size: 24px;
-    font-family: "KaiTi", "Kaiti SC";
+    font-family: "KaiTi", "KaiTiGB2312";
 }
 
 @media (max-width: 768px) {
