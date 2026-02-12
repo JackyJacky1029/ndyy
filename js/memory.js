@@ -142,9 +142,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const attractionFilterButtons = document.querySelectorAll('.attractions-filter-btn');
             const attractionCards = document.querySelectorAll('.attraction-card');
+            const script = document.getElementById("pdfScript")
+
+            script.addEventListener('click', (e) => {
+                if (script.dataset.character != localStorage.getItem("character")) {
+                    e.preventDefault()
+                    alert("请下载自己的角色剧本!")
+                    return
+                };
+                if (script.dataset.character === "阿海") {
+                    window.open("../剧本/亲戚-阿海.pdf", "_blank")
+                };
+
+                if (script.dataset.character === "阿杰") {
+                    window.open("../剧本/船夫-阿杰.pdf", "_blank")
+                };
+
+                if (script.dataset.character === "舒望") {
+                    window.open("../剧本/见习护士-舒望.pdf", "_blank")
+                };
+
+                if (script.dataset.character === "唐小姐") {
+                    window.open("../剧本/女大学生-唐小姐.pdf", "_blank")
+                };
+
+                if (script.dataset.character === "玉馨") {
+                    window.open("../剧本/少女住客-玉馨.pdf", "_blank")
+                };
+            })
 
             // default filter
-            const defaultFilter = document.querySelector('[data-filter="ahai"]');
+            const defaultFilter = document.querySelector('[data-filter="阿海"]');
             defaultFilter.classList.add('active');
 
 
@@ -162,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const filterValue = this.getAttribute('data-filter');
                     
                     filterCards(filterValue);
+                    script.dataset.character = filterValue
                 });
             });
             

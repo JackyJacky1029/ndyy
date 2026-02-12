@@ -182,28 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.key === "Escape") closeModal();
             })
 
-            const restartBtn = document.getElementById("restart-btn")
-
-            restartBtn.addEventListener('click', resetAll)
-
             function closeModal() {
                 modal.classList.remove("open")
                 modal.setAttribute("aria-hidden", "true");
                 modalImg.src = "";
-            }
-
-            async function resetAll() {
-
-                const res = await fetch("https://ndyy-api.onrender.com/reset", {
-                    method: "POST"
-                });
-
-                if (!res.ok) {
-                    alert("重置失败");
-                    return;
-                }
-                localStorage.clear();
-                location.reload();
             }
 
             function countInvestigated() {
