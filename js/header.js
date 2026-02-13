@@ -1,18 +1,5 @@
 $(document).ready(function() {
 
-    $('.search-container').hover(
-        function() {
-            $('.search-box').stop(true).css({
-                display: 'block',
-            }).css({'width': '190px'});
-        },
-        function() {
-            $('.search-box').stop(true).animate({
-                width: '0px'
-            }, 'fast');
-        }
-    );
-
     const $navItems = $('.nav-item');
 
     $navItems.hover(
@@ -46,6 +33,4 @@ $(document).ready(function() {
         $('.X').fadeIn('middle')
         $(this).addClass('active')
     })
-
-
 })
